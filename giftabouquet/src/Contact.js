@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom'
 import './styles/ContactCSS.css';
 
 function Contact() {
+  const[goBackToCart, setGoBackToCart] = React.useState(false);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [message, setMessage] = useState('');
@@ -28,23 +30,27 @@ function Contact() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    // Handle form submission
+    event.preventDefault(); 
+    
     console.log("Name:", name);
     console.log("Address:", address);
     console.log("Message:", message);
-    // Reset form fields after submission
+    
     setName('');
     setAddress('');
     setMessage('');
     setIsSubmitEnabled(false);
-    setIsSubmitted(true); // Set submitted state to true
+    setIsSubmitted(true); 
   };
+
+  if (goBackToCart) {
+    return <Navigate to="/cart" />;
+  }
 
   return (
     <div>
-      <div className="progress-bar"></div> {/* Progress bar */}
-      <h2> Your Contact Information</h2>
+      <div className="progress-bar"></div> {}
+      <h2 style={{color: '#4F7942'}}> Your Contact Information</h2>
       <h3> *Text fields are required.</h3>
       <form onSubmit={handleSubmit}>
         <label>
@@ -64,6 +70,15 @@ function Contact() {
           <textarea value={message} onChange={handleMessageChange} placeholder='Do you have any questions/feedback for us?' />
         </label>
         <br />
+        <button
+            type="back"
+            onClick={() => {
+                setGoBackToCart(true);
+            }}
+        >
+            {" "}
+            Back to Cart
+        </button>
         <button type="submit" disabled={!isSubmitEnabled}>Submit</button>
         {isSubmitted && (
           <div style={{ display: 'inline-block', marginLeft: '10px', color: '#d63c96', textAlign: 'center' }}>

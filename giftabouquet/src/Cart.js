@@ -11,7 +11,7 @@ function Cart() {
 
   return (
     <div>
-        Options
+        Cart
         <button
             onClick={() => {
                 setGoToContact(true);

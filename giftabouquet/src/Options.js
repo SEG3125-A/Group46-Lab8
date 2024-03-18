@@ -95,9 +95,6 @@ function Options() {
           </label>
         </div>
       </div>
-      <button className="next-buttons" onClick={() => { setGoToContact(true); }}>
-          Next: Add Contact info
-        </button>
     </div>
     
   );

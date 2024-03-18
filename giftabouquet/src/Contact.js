@@ -50,7 +50,7 @@ function Contact() {
   return (
     <div>
       <div className="progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> Shopping Progress </div> {}
-      <h2 style={{color: '#4F7942'}}> Your Contact Information</h2>
+      <h2 style={{color: '#d63c96'}}> Your Contact Information</h2>
       <h3> *Text fields are required.</h3>
       <form onSubmit={handleSubmit}>
         <label>

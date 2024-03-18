@@ -83,7 +83,7 @@ function Contact() {
         {isSubmitted && (
           <div style={{ display: 'inline-block', marginLeft: '10px', color: '#d63c96', textAlign: 'center' }}>
             <h2>Thank You for your interest!</h2>
-            <p>We will be in-contact with you very soon.</p>
+            <p>We will be in contact with you very soon.</p>
           </div>
         )}
       </form>

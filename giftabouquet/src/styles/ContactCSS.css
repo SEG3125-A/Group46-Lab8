@@ -94,7 +94,7 @@
     margin-right: 50px;
   }
 
-  button[type="help"] {
+  button[type="button"] {
     padding: 10px 20px;
     background-color: #d63c96;
     color: #fff;

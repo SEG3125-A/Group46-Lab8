@@ -70,6 +70,7 @@ function Contact() {
           <textarea value={message} onChange={handleMessageChange} placeholder='Do you have any questions/feedback for us?' />
         </label>
         <br />
+        <button type="button">Help</button>
         <button
             type="back"
             onClick={() => {
@@ -80,10 +81,9 @@ function Contact() {
             Back to Cart
         </button>
         <button type="submit" disabled={!isSubmitEnabled}>Submit</button>
-        <button type="help">Help</button>
         {isSubmitted && (
           <div style={{ display: 'inline-block', marginLeft: '10px', color: '#d63c96', textAlign: 'center' }}>
-            <h2>Thank You for your interest!</h2>
+            <h2>Thank You For Your Interest!</h2>
             <p>We will be in contact with you very soon.</p>
           </div>
         )}

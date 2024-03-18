@@ -3,14 +3,13 @@ import { Navigate } from 'react-router-dom'
 import './styles/ContactCSS.css';
 
 function Contact() {
-  const[goBackToCart, setGoBackToCart] = React.useState(false);
-  const [goToContact, setGoToContact] = useState(false);
+  const[goToCart, setGoToCart] = React.useState(false);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [goToOptions, setGoToOptions] = useState(false);
+  const [goBackToOptions, setGoBackToOptions] = useState(false);
   const handleNameChange = (event) => {
     setName(event.target.value);
     checkFormValidity();
@@ -43,17 +42,17 @@ function Contact() {
     setIsSubmitEnabled(false);
     setIsSubmitted(true); 
   };
-  if (goToOptions) {
-    return <Navigate to="/options" />;
+  if (goBackToOptions) {
+    return <Navigate to="/" />;
   }
-  if (goBackToCart) {
+  if (goToCart) {
     return <Navigate to="/cart" />;
   }
 
   return (
     <div>
       <div className="progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> Shopping Progress </div> {}
-      <h2 style={{color: '#d63c96'}}> Your Contact Information</h2>
+      <h2 style={{color: '#d63c96'}}> Your Receiver's Contact Information</h2>
       <h3> *Text fields are required.</h3>
       <form onSubmit={handleSubmit}>
         <label>
@@ -77,28 +76,22 @@ function Contact() {
         <button
             type="back"
             onClick={() => {
-                setGoBackToCart(true);
+                setGoBackToOptions(true);
             }}
         >
             {" "}
-            Back to Cart
+            Back to Options
         </button>
-        <button type="submit" disabled={!isSubmitEnabled}>Submit</button>
-        {isSubmitted && (
-          <div style={{ display: 'inline-block', marginLeft: '10px', color: '#d63c96', textAlign: 'center' }}>
-            <h2>Thank You For Your Interest!</h2>
-            <p>We will be in contact with you very soon.</p>
-          </div>
-        )}
+        <button
+            type="next"
+            onClick={() => {
+                setGoToCart(true);
+            }}
+        >
+            {" "}
+            Go to Cart
+        </button>
       </form>
-      <button className='next-buttons'
-        onClick={() => {
-          setGoToOptions(true);
-        }}
-      >
-        {" "}
-        Go back to Options Page
-      </button>
     </div>
   );
 }

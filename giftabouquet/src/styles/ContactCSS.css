@@ -94,6 +94,17 @@
     margin-right: 50px;
   }
 
+  button[type="next"] {
+    padding: 10px 20px;
+    background-color: #d63c96;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 50px;
+  }
+
   button[type="button"] {
     padding: 10px 20px;
     background-color: #d63c96;

@@ -80,6 +80,7 @@ function Contact() {
             Back to Cart
         </button>
         <button type="submit" disabled={!isSubmitEnabled}>Submit</button>
+        <button type="help">Help</button>
         {isSubmitted && (
           <div style={{ display: 'inline-block', marginLeft: '10px', color: '#d63c96', textAlign: 'center' }}>
             <h2>Thank You for your interest!</h2>

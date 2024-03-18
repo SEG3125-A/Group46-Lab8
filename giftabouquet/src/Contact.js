@@ -4,12 +4,13 @@ import './styles/ContactCSS.css';
 
 function Contact() {
   const[goBackToCart, setGoBackToCart] = React.useState(false);
+  const [goToContact, setGoToContact] = useState(false);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const [goToOptions, setGoToOptions] = useState(false);
   const handleNameChange = (event) => {
     setName(event.target.value);
     checkFormValidity();
@@ -42,7 +43,9 @@ function Contact() {
     setIsSubmitEnabled(false);
     setIsSubmitted(true); 
   };
-
+  if (goToOptions) {
+    return <Navigate to="/options" />;
+  }
   if (goBackToCart) {
     return <Navigate to="/cart" />;
   }
@@ -88,6 +91,14 @@ function Contact() {
           </div>
         )}
       </form>
+      <button className='next-buttons'
+        onClick={() => {
+          setGoToOptions(true);
+        }}
+      >
+        {" "}
+        Go back to Options Page
+      </button>
     </div>
   );
 }

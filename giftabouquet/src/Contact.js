@@ -7,43 +7,22 @@ function Contact() {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [message, setMessage] = useState('');
-  const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [goBackToOptions, setGoBackToOptions] = useState(false);
+
   const handleNameChange = (event) => {
     setName(event.target.value);
-    checkFormValidity();
   };
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
-    checkFormValidity();
   };
 
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
-    checkFormValidity();
   };
 
-  const checkFormValidity = () => {
-    setIsSubmitEnabled(name !== '' && address !== '' && message.split(/\s+/).length <= 100);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault(); 
-    
-    console.log("Name:", name);
-    console.log("Address:", address);
-    console.log("Message:", message);
-    
-    setName('');
-    setAddress('');
-    setMessage('');
-    setIsSubmitEnabled(false);
-    setIsSubmitted(true); 
-  };
   if (goBackToOptions) {
-    return <Navigate to="/" />;
+    return <Navigate to="/options" />;
   }
   if (goToCart) {
     return <Navigate to="/cart" />;
@@ -51,10 +30,10 @@ function Contact() {
 
   return (
     <div>
-      <div className="progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> Shopping Progress </div> {}
+      <div className="contact-progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> Shopping Progress </div> {}
       <h2 style={{color: '#d63c96'}}> Your Receiver's Contact Information</h2>
       <h3> *Text fields are required.</h3>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>
           Name: * 
           <input type="text" value={name} onChange={handleNameChange} placeholder='Enter Full Name' />
@@ -72,9 +51,8 @@ function Contact() {
           <textarea value={message} onChange={handleMessageChange} placeholder='Do you have any questions/feedback for us?' />
         </label>
         <br />
-        <button type="button">Help</button>
         <button
-            type="back"
+            type="goBackToOptions"
             onClick={() => {
                 setGoBackToOptions(true);
             }}
@@ -83,7 +61,7 @@ function Contact() {
             Back to Options
         </button>
         <button
-            type="next"
+            type="goToCart"
             onClick={() => {
                 setGoToCart(true);
             }}

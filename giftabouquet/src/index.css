@@ -15,29 +15,11 @@ code {
 .titles {
   font-weight: bold;
   font-family: Arial, sans-serif;
-  color: black;
+  color: #d63c96;
   font-size: 30px;
   text-align: center;
 }
 
-.next-buttons {
-  background-color: rgb(59, 137, 163);
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.heading2 {
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  color: rgb(112, 111, 111);
-  font-size: 150%;
-  text-align: left;
-}
 .outlined-box{
   display: inline-block;
   font-weight: bold;

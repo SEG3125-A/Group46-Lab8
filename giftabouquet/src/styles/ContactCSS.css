@@ -1,17 +1,17 @@
-.progress-bar {
-    height: 30px;
-    background-color: #007bff;
-    width: 100%;  
-    margin-bottom: 20px;
-    padding-top: 5px;
-  }
+.contact-progress-bar {
+  height: 30px;
+  background: linear-gradient(to right, #007bff 50%, #ffffff 50%);
+  width: 100%;  
+  margin-bottom: 20px;
+  padding-top: 5px;
+}
 
-  body {
+body {
     background-image: url('./flowers.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat;
     image-rendering: optimizeQuality;
-  }
+}
 
 * {
     margin: 0;
@@ -72,18 +72,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  
-  button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #d63c96;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
 
-  button[type="back"] {
+  button[type="goBackToOptions"] {
     padding: 10px 20px;
     background-color: #d63c96;
     color: #fff;
@@ -94,7 +84,7 @@
     margin-right: 50px;
   }
 
-  button[type="next"] {
+  button[type="goToCart"] {
     padding: 10px 20px;
     background-color: #d63c96;
     color: #fff;
@@ -103,25 +93,6 @@
     cursor: pointer;
     font-size: 16px;
     margin-right: 50px;
-  }
-
-  button[type="button"] {
-    padding: 10px 20px;
-    background-color: #d63c96;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    margin-top: 20px;
-    margin-right: 20px; 
-}
-  
-  button[type="submit"]:hover {
-    background-color: #d63c96;
   }
   
   footer {

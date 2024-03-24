@@ -4,7 +4,6 @@ import Contact from './Contact';
 import Cart from './Cart';
 import Main from './Main';
 
-
 function App() { 
   return (
     <div className='App'>

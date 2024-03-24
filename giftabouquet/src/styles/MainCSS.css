@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10vh; 
+    padding-top: 10vh;
+    position: relative; 
 }
 
  .title {
@@ -19,4 +20,16 @@ button[type="start"] {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.language-selector1 {
+    position: absolute;
+    top: 20px;
+    right: -250px; 
+}
+
+.language-selector2 {
+    position: absolute;
+    top: 20px;
+    right: -300px; 
 }

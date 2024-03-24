@@ -51,3 +51,15 @@ button[type="goBackToHomepage"] {
     font-size: 16px;
     margin-right: 50px;
 }
+
+.options-language-selector1 {
+    position: absolute;
+    top: 70px;
+    right: 120px; 
+}
+
+.options-language-selector2 {
+    position: absolute;
+    top: 70px;
+    right: 70px; 
+}

@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import './styles/OptionsCSS.css';
+import i18n from './i18n';
+import LocaleContext from './LocaleContext';
+import {useTranslation} from 'react-i18next';
+import Loading from './Loading';
 
 function Options() {
   const [goToContact, setGoToContact] = useState(false);
@@ -8,6 +12,13 @@ function Options() {
   const [cart, setCart] = useState([]);
   const [personalizedMessage, setPersonalizedMessage] = useState('');
   const [deliveryOption, setDeliveryOption] = useState(true);
+  const {t} = useTranslation();
+  const [locale, setLocale] = useState(i18n.language);
+  i18n.on('languageChanged', (lng)=> setLocale(i18n.language));
+  
+  const handleLanguageChange = (event)=>{
+    i18n.changeLanguage(event.target.value);
+  }
 
   if (goToContact) {
     return <Navigate to="/contact" />;
@@ -18,9 +29,9 @@ function Options() {
   }
 
   const flowers = [
-    { id: 1, name: 'Rose', price: 10 },
-    { id: 2, name: 'Tulip', price: 8 },
-    { id: 3, name: 'Sunflower', price: 12 },
+    { id: 1, name: t('Rose'), price: 10 },
+    { id: 2, name: t('Tulip'), price: 8 },
+    { id: 3, name: t('Sunflower'), price: 12 },
   ];
 
   const handleCheckboxChange = (flower) => {
@@ -42,26 +53,28 @@ function Options() {
 
   return (
     <div>
-      <div className="options-progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> Shopping Progress </div> {}
+      <LocaleContext.Provider value={{locale, setLocale}}>
+        <Suspense fallback = {<Loading />}>
+        <div className="options-progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> {t('Shopping Progress')} </div> {}
       <div className="titles">
-        Customize Your Bouquet
+      {t('Customize Your Bouquet')}
       </div>
       <br />
       <br />
       <div>
         <div className="flower-options">
-          <h2 className="heading2" style={{color:'black', fontWeight: 'bold'}}>Flower Options</h2>
+          <h2 className="heading2" style={{color:'black', fontWeight: 'bold'}}>{t('Flower Options')}</h2>
           <div className="outlined-box">
             {flowers.map(flower => (
               <div key={flower.id}>
                 <h3>{flower.name}</h3>
-                <p>Price: ${flower.price}</p>
+                <p>{t('Price')} ${flower.price}</p>
                 <label>
                   <input
                     type="checkbox"
                     onChange={() => handleCheckboxChange(flower)}
                   />
-                  Add to Cart
+                  {t('Add to Cart')}
                 </label>
               </div>
             ))}
@@ -71,11 +84,11 @@ function Options() {
         <br />
 
         <div className="personalized-message">
-          <h2 className="heading2" style={{color:'black', fontWeight: 'bold'}}>Personalized Message</h2>
+          <h2 className="heading2" style={{color:'black', fontWeight: 'bold'}}>{t('Personalized Message')}</h2>
           <textarea
             rows="4"
             cols="50"
-            placeholder='What would you like to tell the receiver?'
+            placeholder={t('What would you like to tell the receiver?')}
             value={personalizedMessage}
             onChange={handlePersonalizedMessageChange}
           />
@@ -84,7 +97,7 @@ function Options() {
         <br />
 
         <div className="delivery-options">
-          <h2 className="heading2" style={{color:'black', fontWeight: 'bold'}}>Delivery Options</h2>
+          <h2 className="heading2" style={{color:'black', fontWeight: 'bold'}}>{t('Delivery Options')}</h2>
           <label>
             <input
               type="radio"
@@ -92,7 +105,7 @@ function Options() {
               checked={deliveryOption}
               onChange={handleDeliveryOptionChange}
             />
-            Delivery
+            {t('Delivery')}
           </label>
           <label>
             <input
@@ -101,7 +114,7 @@ function Options() {
               checked={!deliveryOption}
               onChange={handleDeliveryOptionChange}
             />
-            Pickup
+            {t('Pickup')}
           </label>
         </div>
       </div>
@@ -113,7 +126,7 @@ function Options() {
             }}
         >
             {" "}
-            Back to Homepage
+            {t('Back to Homepage')}
       </button>
       <button
             type="goToContact"
@@ -122,8 +135,15 @@ function Options() {
             }}
         >
             {" "}
-            Go to Contact Information
+            {t('Go to Contact Information')}
         </button>
+        <label className="options-language-selector1" style={{ fontWeight: 'bold' }}>Change Language</label>
+                    <select className="options-language-selector2" value={locale} onChange={handleLanguageChange}>
+                        <option value='en'>EN</option>
+                        <option value='fr'>FR</option>
+                    </select>
+        </Suspense>
+      </LocaleContext.Provider>
     </div>
   );
 }

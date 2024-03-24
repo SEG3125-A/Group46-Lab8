@@ -1,7 +1,35 @@
 {
+    "Shopping Progress": "Shopping Progress",
+
     "Welcome to GiftABouquet!": "Welcome to GiftABouquet!",
-    "language1": "English",
 
     "Start Shopping": "Start Shopping",
-    "language2": "English"
+
+    "Customize Your Bouquet": "Customize Your Bouquet",
+
+    "Flower Options": "Flower Options",
+
+    "Rose": "Rose",
+
+    "Tulip": "Tulip",
+
+    "Sunflower": "Sunflower",
+
+    "Price": "Price:",
+
+    "Add to Cart": "Add to Cart",
+
+    "Personalized Message": "Personalized Message",
+
+    "What would you like to tell the receiver?": "What would you like to tell the receiver?",
+
+    "Delivery Options": "Delivery Options",
+
+    "Delivery": "Delivery",
+
+    "Pickup": "Pickup",
+
+    "Back to Homepage": "Back to Homepage",
+
+    "Go to Contact Information": "Go to Contact Information"
 }

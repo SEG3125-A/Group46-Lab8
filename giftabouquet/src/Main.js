@@ -4,12 +4,7 @@ import './styles/MainCSS.css';
 import i18n from './i18n';
 import LocaleContext from './LocaleContext';
 import {useTranslation} from 'react-i18next';
-
-function Loading() {
-    return (
-      <>Loading...</>
-    )
-}
+import Loading from './Loading';
 
 function Main() {
     const {t} = useTranslation();

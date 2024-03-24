@@ -1,7 +1,33 @@
 {
+    "Shopping Progress": "Avancement de vos Achats",
+
     "Welcome to GiftABouquet!": "Bienvenue sur GiftABouquet!",
-    "language1": "French",
 
     "Start Shopping": "Commencer à Magasiner",
-    "language2": "French"
+
+    "Customize Your Bouquet": "Personnalisez Votre Bouquet",
+
+    "Flower Options": "Options de Fleurs",
+
+    "Tulip": "Tulipe",
+
+    "Sunflower": "Tournesol",
+
+    "Price": "Prix:",
+
+    "Add to Cart": "Ajouter au Panier",
+
+    "Personalized Message": "Message Personnalisé",
+
+    "What would you like to tell the receiver?": "Que souhaitez-vous dire au destinataire?",
+
+    "Delivery Options": "Options de Livraison",
+
+    "Delivery": "Livraison",
+
+    "Pickup": "Ramassage",
+
+    "Back to Homepage": "Retour à la Page d'Accueil",
+
+    "Go to Contact Information": "Aller aux Coordonnées"
 }

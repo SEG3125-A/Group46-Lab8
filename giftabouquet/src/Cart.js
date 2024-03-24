@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import './styles/CartCSS.css'
+import i18n from './i18n';
+import LocaleContext from './LocaleContext';
+import {useTranslation} from 'react-i18next';
+import Loading from './Loading';
 
 function Cart() {
   const [goBackToContact, setGoBackToContact] = useState(false);
-  const [orderPlaced, setOrderPlaced] = useState(false); 
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const {t} = useTranslation();
+  const [locale, setLocale] = useState(i18n.language);
+  i18n.on('languageChanged', (lng)=> setLocale(i18n.language));
+
+  const handleLanguageChange = (event)=>{
+    i18n.changeLanguage(event.target.value);
+  }
 
   const cartItems = useState([
-    { id: 1, name: 'Rose', price: 10 },
-    { id: 2, name: 'Sunflower', price: 12 },
+    { id: 1, name: t('Rose'), price: 10 },
+    { id: 2, name: t('Sunflower'), price: 12 },
   ])[0];
 
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
@@ -23,10 +34,12 @@ function Cart() {
 
   return (
     <div>
-      <div className="cart-progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> Shopping Progress </div> {}
-      <h1 style={{color: '#d63c96'}}>Your Cart</h1>
+      <LocaleContext.Provider value={{locale, setLocale}}>
+      <Suspense fallback={<Loading />}>
+      <div className="cart-progress-bar" style={{textAlign: 'center', fontWeight: 'bold'}}> {t('Shopping Progress')} </div> {}
+      <h1 style={{color: '#d63c96'}}>{t('Your Cart')}</h1>
       <div className="cart-items">
-        <h2 className='heading2'>Selected Flowers</h2>
+        <h2 className='heading2'>{t('Selected Flowers')}</h2>
         <div className="outlined-box">
         <ul>
           {cartItems.map(item => (
@@ -35,7 +48,7 @@ function Cart() {
             </li>
           ))}
         </ul>
-        <p style={{color: '#d63c96'}}>Total: ${totalPrice}</p>
+        <p style={{color: '#d63c96'}}>{t('Total')}: ${totalPrice}</p>
         </div>
       </div>
       <br />
@@ -46,22 +59,29 @@ function Cart() {
             }}
       >
             {" "}
-            Back to Contact Information
+            {t('Back to Contact Information')}
       </button>
       <button
             type="order"
             onClick={handleOrderNow}
       >
             {" "}
-            Order Now
+            {t('Order Now')}
       </button>
       {orderPlaced && (
         <div style={{ marginTop: '20px', color: 'green' }}>
-          Your order has been placed successfully.
+          {t('Your order has been placed successfully.')}
           <br />
-          Thank you for shopping with GiftABouquet!
+          {t('Thank you for shopping with GiftABouquet!')}
         </div>
       )}
+      <label className="options-language-selector1" style={{ fontWeight: 'bold' }}>{t('Change Language')}</label>
+                    <select className="options-language-selector2" value={locale} onChange={handleLanguageChange}>
+                        <option value='en'>EN</option>
+                        <option value='fr'>FR</option>
+                    </select>
+      </Suspense>
+      </LocaleContext.Provider>
     </div>
   );
 }

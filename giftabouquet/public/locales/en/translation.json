@@ -31,5 +31,41 @@
 
     "Back to Homepage": "Back to Homepage",
 
-    "Go to Contact Information": "Go to Contact Information"
+    "Go to Contact Information": "Go to Contact Information",
+
+    "Your Receivers Contact Information": "Your Receiver's Contact Information",
+
+    "*Text fields are required.": "*Text fields are required.",
+
+    "Name": "Name",
+
+    "Enter Full Name": "Enter Full Name",
+
+    "Address": "Address",
+
+    "Town/City & Postal Code": "Town/City & Postal Code",
+
+    "Message (limit 100 words)": "Message (limit 100 words)",
+
+    "Do you have any questions/feedback for us?": "Do you have any questions/feedback for us?",
+
+    "Back to Options": "Back to Options",
+
+    "Go to Cart": "Go to Cart",
+
+    "Your Cart": "Your Cart",
+
+    "Selected Flowers": "Selected Flowers",
+
+    "Total": "Total",
+
+    "Back to Contact Information": "Back to Contact Information",
+
+    "Order Now": "Order Now",
+
+    "Your order has been placed successfully.": "Your order has been placed successfully.",
+
+    "Thank you for shopping with GiftABouquet!": "Thank you for shopping with GiftABouquet!",
+
+    "Change Language": "Change Language"
 }

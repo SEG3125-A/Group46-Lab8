@@ -137,7 +137,7 @@ function Options() {
             {" "}
             {t('Go to Contact Information')}
         </button>
-        <label className="options-language-selector1" style={{ fontWeight: 'bold' }}>Change Language</label>
+        <label className="options-language-selector1" style={{ fontWeight: 'bold' }}>{t('Change Language')}</label>
                     <select className="options-language-selector2" value={locale} onChange={handleLanguageChange}>
                         <option value='en'>EN</option>
                         <option value='fr'>FR</option>

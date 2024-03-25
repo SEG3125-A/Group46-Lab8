@@ -35,8 +35,8 @@ function Main() {
                         {" "}
                         {t('Start Shopping')}
                     </button>
-                    <label className="language-selector1" style={{ fontWeight: 'bold' }}>{t('Change Language')}</label>
-                    <select className="language-selector2" value={locale} onChange={handleLanguageChange}>
+                    <label className="options-language-selector1" style={{ fontWeight: 'bold' }}>{t('Change Language')}</label>
+                    <select className="options-language-selector2" value={locale} onChange={handleLanguageChange}>
                         <option value='en'>EN</option>
                         <option value='fr'>FR</option>
                     </select>

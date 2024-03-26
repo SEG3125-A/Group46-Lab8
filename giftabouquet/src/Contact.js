@@ -30,8 +30,16 @@ function Contact() {
   };
 
   const handleMessageChange = (event) => {
-    setMessage(event.target.value);
+    const newMessage = event.target.value;
+    setMessage(newMessage);
+  
+    // Check if the length of the new message exceeds 100 characters
+    if (newMessage.length > 100) {
+      // If so, show a warning message
+      alert('Warning: Message should not exceed 100 characters.');
+    }
   };
+  
 
   if (goBackToOptions) {
     return <Navigate to="/options" />;
@@ -61,7 +69,7 @@ function Contact() {
         <br />
         <br />
         <label>
-        {t('Message (limit 100 words)')}:
+        {t('Message (limit 100 characters)')}:
           <textarea value={message} onChange={handleMessageChange} placeholder={t('Do you have any questions/feedback for us?')} />
         </label>
         <br />
